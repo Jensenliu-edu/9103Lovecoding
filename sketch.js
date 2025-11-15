@@ -6,7 +6,7 @@ let midImg;
 let isModelReady = false;
 let timerValue = 0;
 let lastTime = 0;
-// 一组马丽莲梦露（Warhol 风格）配色
+// color array
 let warholColors = [
   [255, 102, 102], // 粉红
   [102, 255, 204], // 薄荷绿
@@ -24,7 +24,7 @@ let currentWarholIndex = 0;
 
 
 function preload() {
-  // 加载背景图片（可以换成你自己的路径）
+  // load background img
   bgImg = loadImage('assets/Edvard_Munch_The_Scream.jpeg');
   midImg = loadImage('assets/Edvard_Munch_The_Scream.jpeg');
 }
@@ -40,8 +40,8 @@ function setup() {
 
   let constraints = {
     video: {
-      width: 100,    // 宽度
-      height: 100    // 高度
+      width: 100,    // width
+      height: 100    // height
     },
     audio: false
   };
@@ -50,7 +50,7 @@ function setup() {
   video.size(100, 100);
   video.hide();
 
-  // 加载 UNet 实时人体分割模型
+  // load UNet 
   segmenter = ml5.uNet('person', modelReady);
 }
 
@@ -72,7 +72,7 @@ function draw() {
     let posx = i*240;
     let posy = y*300;
     
-    tint(255, 200);  // 透明度控制，可调
+    tint(255, 200);  // control layers
 
     applyWarholTint(midImg, posx+5, posy+5, 230, 290, color)
     drawStatusText(posx, posy);
@@ -101,14 +101,14 @@ function draw() {
 }
 
 function applyPixelation(pixelSize) {
-  // 创建一个更小的临时画布
+  // create a tini canva
   let smallGraphics = createGraphics(width / pixelSize, height / pixelSize);
   smallGraphics.noSmooth();
 
-  // 将当前画面缩小绘制到小画布中
+  // make the graphic small
   smallGraphics.image(get(), 0, 0, smallGraphics.width, smallGraphics.height);
 
-  // 再把它放大回原尺寸形成像素风
+  // resize it
   noSmooth();
   image(smallGraphics, 0, 0, width, height);
   smooth();
@@ -134,25 +134,25 @@ function drawStatusText(posx, posy) {
 
 }
 
-// 🟪 控制图片与人物的色调 - Warhol 风格
+// 🟪 Control the color tone of the picture and characters - Warhol style
 function applyWarholTint(img, x, y, w, h, color) {
   
   if (!img) return;
 
-  // 获取当前色调
+  // Get the current hue.
   currentWarholIndex = color;
   let c = warholColors[currentWarholIndex];
    
-  // 上色
+  // color
   tint(c[0], c[1], c[2], 255);
   image(img, x, y, w, h);
   noTint(); 
 }
-//计时器
+//time
 function updateTimer() {
-  // 每 1000ms 增加一次
+  // 1000ms 
   if (millis() - lastTime >= 1000) {
-    timerValue = (timerValue + 1) % 10;  // 0~9循环
+    timerValue = (timerValue + 1) % 10;  // 0~9
     lastTime = millis();
   }
 
