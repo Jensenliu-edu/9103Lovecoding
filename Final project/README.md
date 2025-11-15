@@ -101,9 +101,12 @@ This creates a more intense and expressive transformation distinct from the othe
 ## 🎞 References / Inspiration
 
 ### **Visual & Conceptual References**
-- Pixel-art aesthetics and retro game visuals  
-- Fragmentation metaphors in digital art  
-- “Shattering” VFX in anime & motion graphics  
+
+- **https://www.reddit.com/r/PixelArt/**  
+  A large collection of high-quality pixel art styles, character design, abstraction, and shading.
+
+- **https://pixeljoint.com**  
+  One of the most established pixel-art communities; helpful for pixel structure, shading, and animation inspiration.
 
 ### **Technical Inspiration**
 - p5.js pixel manipulation examples  
@@ -111,9 +114,30 @@ This creates a more intense and expressive transformation distinct from the othe
 - Audio amplitude visualization methods  
 - Game-engine particle systems (Unity, Godot)
 
+### **Digital Fragmentation / Shatter Effects**
+
+- **https://openprocessing.org**  
+  Thousands of audio-reactive sketches and creative coding examples using p5.js.
+
+- **https://inconvergent.net/generative/**  
+  Advanced generative art exploring distortion, motion instability, and organic forms.
+
+- **https://www.behance.net/search/projects?search=glitch%20art**  
+  High-quality glitch art, particle destruction, and visual chaos from professional creators.
+
+- **https://www.eyejackapp.com/artists**  
+  AR artists using fragmentation, distortion and expressive breakdown in digital artworks.
 These references helped shape the concept of translating **emotional breakdown → visual decomposition**.
 
 ---
+
+## 🎛 What I Changed from the Group Code (Short)
+
+- Added a **audio system** using p5.Amplitude() to control pixelation, shaking, scaling, and distortion.
+- Implemented a **crack → shatter effect** for both the portrait and the text, triggered by audio peaks.
+- Added **wave distortion** and **jitter** so the entire painting reacts emotionally to the music.
+- Made the “I forgot ddl” text **audio-responsive** with colour sampling and vibration.
+- Kept core group features (segmentation, pixelation, UI buttons) but expanded them with sound-driven behaviour to create a more expressive, dynamic version.
 
 ## 🛠 Technical Explanation 
 
